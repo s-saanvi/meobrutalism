@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #facc15; /* Yellow-400 */
+  --color-secondary: #f472b6; /* Pink-400 */
+  --color-accent: #60a5fa; /* Blue-400 */
+  --color-dark: #1f2937; /* Gray-800 */
+  --color-light: #f9fafb; /* Gray-50 */
+
+  --font-sans: "Space Grotesk", "Inter", sans-serif;
+
+  --shadow-brutal: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-hover: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-lg: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+@utility brutal-box {
+  border: 2px solid var(--color-dark);
+  box-shadow: var(--shadow-brutal);
+  transition: all 0.2s ease;
+}
+
+@utility brutal-box-hover {
+  &:hover {
+    transform: translate(2px, 2px);
+    box-shadow: var(--shadow-brutal-hover);
+  }
+}
+
+@utility brutal-button {
+  border: 2px solid var(--color-dark);
+  box-shadow: var(--shadow-brutal);
+  transition: all 0.2s ease;
+  font-weight: bold;
+  &:hover {
+    transform: translate(2px, 2px);
+    box-shadow: var(--shadow-brutal-hover);
+  }
+  &:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
