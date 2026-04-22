@@ -10,7 +10,6 @@ function App() {
       <main className="flex-grow">
         <Hero />
         <Services />
-        {/* We can add more sections here like Work, About, Testimonials later */}
       </main>
       <Footer />
     </div>
