@@ -1,5 +1,11 @@
 import { MessageCircle, Code2, Briefcase, Mail } from 'lucide-react';
 
+const socialLinks = [
+  { icon: MessageCircle, colorClass: "hover:border-primary", href: "#" },
+  { icon: Code2, colorClass: "hover:border-secondary", href: "#" },
+  { icon: Briefcase, colorClass: "hover:border-accent", href: "#" }
+];
+
 export default function Footer() {
   return (
     <footer className="bg-dark text-white px-6 py-12 md:py-16">
@@ -13,15 +19,15 @@ export default function Footer() {
             Building unapologetically bold digital experiences for forward-thinking brands.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 bg-white text-dark flex items-center justify-center border-2 border-transparent hover:border-primary hover:-translate-y-1 transition-transform">
-              <MessageCircle className="w-5 h-5" />
-            </a>
-            <a href="#" className="w-10 h-10 bg-white text-dark flex items-center justify-center border-2 border-transparent hover:border-secondary hover:-translate-y-1 transition-transform">
-              <Code2 className="w-5 h-5" />
-            </a>
-            <a href="#" className="w-10 h-10 bg-white text-dark flex items-center justify-center border-2 border-transparent hover:border-accent hover:-translate-y-1 transition-transform">
-              <Briefcase className="w-5 h-5" />
-            </a>
+            {socialLinks.map(({ icon: Icon, colorClass, href }, index) => (
+              <a
+                key={index}
+                href={href}
+                className={`w-10 h-10 bg-white text-dark flex items-center justify-center border-2 border-transparent ${colorClass} hover:-translate-y-1 transition-transform`}
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            ))}
           </div>
         </div>
 
