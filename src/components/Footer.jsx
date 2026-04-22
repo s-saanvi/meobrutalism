@@ -1,6 +1,21 @@
 import { MessageCircle, Code2, Briefcase, Mail } from 'lucide-react';
 
 const socialLinks = [
+  { icon: MessageCircle, href: '#', hoverBorder: 'hover:border-primary' },
+  { icon: Code2, href: '#', hoverBorder: 'hover:border-secondary' },
+  { icon: Briefcase, href: '#', hoverBorder: 'hover:border-accent' },
+];
+
+const companyLinks = [
+  { name: 'About Us', href: '#' },
+  { name: 'Careers', href: '#' },
+  { name: 'Our Work', href: '#' },
+  { name: 'Contact', href: '#' },
+];
+
+const legalLinks = [
+  { name: 'Privacy Policy', href: '#' },
+  { name: 'Terms of Service', href: '#' },
   { icon: MessageCircle, colorClass: "hover:border-primary", href: "#" },
   { icon: Code2, colorClass: "hover:border-secondary", href: "#" },
   { icon: Briefcase, colorClass: "hover:border-accent", href: "#" }
@@ -19,6 +34,13 @@ export default function Footer() {
             Building unapologetically bold digital experiences for forward-thinking brands.
           </p>
           <div className="flex gap-4">
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                className={`w-10 h-10 bg-white text-dark flex items-center justify-center border-2 border-transparent ${social.hoverBorder} hover:-translate-y-1 transition-transform`}
+              >
+                <social.icon className="w-5 h-5" />
             {socialLinks.map(({ icon: Icon, colorClass, href }, index) => (
               <a
                 key={index}
@@ -34,10 +56,13 @@ export default function Footer() {
         <div>
           <h4 className="font-bold text-xl mb-6 text-primary">Company</h4>
           <ul className="space-y-3 font-medium">
-            <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Our Work</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
+            {companyLinks.map((link) => (
+              <li key={link.name}>
+                <a href={link.href} className="hover:text-primary transition-colors">
+                  {link.name}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -55,8 +80,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 font-medium text-white/60 text-sm">
         <p>&copy; {new Date().getFullYear()} CodingCup Labs. All rights reserved.</p>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          {legalLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="hover:text-white transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
         </div>
       </div>
     </footer>
