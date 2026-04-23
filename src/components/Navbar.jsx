@@ -1,5 +1,11 @@
 import { Menu } from 'lucide-react';
 
+const navLinks = [
+  { href: '#services', label: 'Services', hoverClass: 'hover:text-accent' },
+  { href: '#work', label: 'Work', hoverClass: 'hover:text-secondary' },
+  { href: '#about', label: 'About', hoverClass: 'hover:text-primary' },
+];
+
 export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-light border-b-2 border-dark px-6 py-4">
@@ -10,9 +16,15 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-8 font-semibold">
-          <a href="#services" className="hover:text-accent transition-colors">Services</a>
-          <a href="#work" className="hover:text-secondary transition-colors">Work</a>
-          <a href="#about" className="hover:text-primary transition-colors">About</a>
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className={`${link.hoverClass} transition-colors`}
+            >
+              {link.label}
+            </a>
+          ))}
           <button className="brutal-button bg-accent px-6 py-2 rounded-sm text-dark">
             Let's Talk
           </button>
