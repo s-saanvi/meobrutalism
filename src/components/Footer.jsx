@@ -1,9 +1,9 @@
 import { MessageCircle, Code2, Briefcase, Mail } from 'lucide-react';
 
 const socialLinks = [
-  { icon: MessageCircle, href: '#', hoverBorder: 'hover:border-primary' },
-  { icon: Code2, href: '#', hoverBorder: 'hover:border-secondary' },
-  { icon: Briefcase, href: '#', hoverBorder: 'hover:border-accent' },
+  { name: 'Twitter', icon: MessageCircle, href: '#', hoverBorder: 'hover:border-primary' },
+  { name: 'GitHub', icon: Code2, href: '#', hoverBorder: 'hover:border-secondary' },
+  { name: 'LinkedIn', icon: Briefcase, href: '#', hoverBorder: 'hover:border-accent' },
 ];
 
 const companyLinks = [
@@ -31,12 +31,13 @@ export default function Footer() {
             Building unapologetically bold digital experiences for forward-thinking brands.
           </p>
           <div className="flex gap-4">
-            {socialLinks.map((social, index) => (
+            {socialLinks.map((social) => (
               <a
-                key={index}
+                key={social.name}
                 href={social.href}
                 rel="noopener noreferrer"
                 className={`w-10 h-10 bg-white text-dark flex items-center justify-center border-2 border-transparent ${social.hoverBorder} hover:-translate-y-1 transition-transform`}
+                aria-label={social.name}
               >
                 <social.icon className="w-5 h-5" />
               </a>
