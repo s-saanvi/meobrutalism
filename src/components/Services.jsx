@@ -44,9 +44,9 @@ export default function Services() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
-              key={index}
+              key={service.title}
               className={`brutal-box p-8 ${service.color} brutal-box-hover flex flex-col h-full`}
             >
               <div className="w-14 h-14 bg-white border-2 border-dark flex items-center justify-center mb-6 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
