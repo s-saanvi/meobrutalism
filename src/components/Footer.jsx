@@ -16,9 +16,6 @@ const companyLinks = [
 const legalLinks = [
   { name: 'Privacy Policy', href: '#' },
   { name: 'Terms of Service', href: '#' },
-  { icon: MessageCircle, colorClass: "hover:border-primary", href: "#" },
-  { icon: Code2, colorClass: "hover:border-secondary", href: "#" },
-  { icon: Briefcase, colorClass: "hover:border-accent", href: "#" }
 ];
 
 export default function Footer() {
@@ -38,16 +35,10 @@ export default function Footer() {
               <a
                 key={index}
                 href={social.href}
+                rel="noopener noreferrer"
                 className={`w-10 h-10 bg-white text-dark flex items-center justify-center border-2 border-transparent ${social.hoverBorder} hover:-translate-y-1 transition-transform`}
               >
                 <social.icon className="w-5 h-5" />
-            {socialLinks.map(({ icon: Icon, colorClass, href }, index) => (
-              <a
-                key={index}
-                href={href}
-                className={`w-10 h-10 bg-white text-dark flex items-center justify-center border-2 border-transparent ${colorClass} hover:-translate-y-1 transition-transform`}
-              >
-                <Icon className="w-5 h-5" />
               </a>
             ))}
           </div>
@@ -84,6 +75,7 @@ export default function Footer() {
             <a
               key={link.name}
               href={link.href}
+              rel="noopener noreferrer"
               className="hover:text-white transition-colors"
             >
               {link.name}
